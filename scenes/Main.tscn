@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/Main.gd" type="Script" id=2]
+[ext_resource path="res://scenes/GroundObstacle.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/UI.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 662.69, 114.38 )
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 2 )
+ground_obstacle_scene = ExtResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+margin_top = 500.0
+margin_right = 1280.0
+margin_bottom = 720.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 641.108, 611.269 )
+shape = SubResource( 1 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 399.123, 441.886 )
+
+[node name="ObstacleTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="ScoreTimer" type="Timer" parent="."]
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="PlayerPosition" type="Position2D" parent="."]
+position = Vector2( 400, 442 )
+
+[node name="GroundObstacleStart" type="Position2D" parent="."]
+position = Vector2( 1280, 450 )
+
+[node name="GroundObstacleEnd" type="Position2D" parent="."]
+position = Vector2( -50, 450 )
+
+[node name="UI" parent="." instance=ExtResource( 4 )]

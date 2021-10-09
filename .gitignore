@@ -1,0 +1,12 @@
+builds
+.import
+.mono
+*.old
+
+# Import cache
+.import/
+
+# Binaries
+bin/
+build/
+lib/
