@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Po GD"
-run/main_scene="res://scenes/Main.tscn"
+run/main_scene="res://src/main/main.tscn"
 config/icon="res://assets/icons/po-icon.png"
 
 [display]

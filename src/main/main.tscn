@@ -1,15 +1,15 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scripts/Main.gd" type="Script" id=2]
-[ext_resource path="res://scenes/GroundObstacle.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/UI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/main/main.gd" type="Script" id=1]
+[ext_resource path="res://src/player/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/ground_obstacle/ground_obstacle.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/ui/ui.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 662.69, 114.38 )
 
 [node name="Main" type="Node2D"]
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 ground_obstacle_scene = ExtResource( 3 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -26,7 +26,7 @@ __meta__ = {
 position = Vector2( 641.108, 611.269 )
 shape = SubResource( 1 )
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
+[node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 399.123, 441.886 )
 
 [node name="ObstacleTimer" type="Timer" parent="."]
