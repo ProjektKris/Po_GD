@@ -3,6 +3,9 @@ extends Node2D
 # The scene containing the ground obstacle
 export(PackedScene) var ground_obstacle_scene
 
+# The scene containing the air obstacle
+export(PackedScene) var air_obstacle_scene
+
 # The starting `speed` of the `Player`. `default: 400.0`
 export var starting_speed: float = 400.0
 
@@ -61,7 +64,10 @@ func _on_new_game() -> void:
 func _on_ObstacleTimer_timeout() -> void:
 	print("spawning ground obstacle")
 	
-	var new_obstacle: StaticBody2D = ground_obstacle_scene.instance()
+	var new_obstacle: StaticBody2D
+	match randi()%2+1:
+		1: new_obstacle = ground_obstacle_scene.instance()
+		2: new_obstacle = air_obstacle_scene.instance()
 	
 	add_child(new_obstacle)
 	
