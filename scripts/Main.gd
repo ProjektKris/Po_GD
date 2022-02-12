@@ -67,7 +67,7 @@ func _on_ObstacleTimer_timeout() -> void:
 	
 	add_child(new_obstacle)
 	
-	new_obstacle.position = $GroundObstacleStart.position
+	new_obstacle.position = $ObstacleStart.position
 	
 	# rng for next timeout
 	randomize()

@@ -41,10 +41,7 @@ one_shot = true
 [node name="PlayerPosition" type="Position2D" parent="."]
 position = Vector2( 400, 442 )
 
-[node name="GroundObstacleStart" type="Position2D" parent="."]
-position = Vector2( 1280, 450 )
-
-[node name="GroundObstacleEnd" type="Position2D" parent="."]
-position = Vector2( -50, 450 )
+[node name="ObstacleStart" type="Position2D" parent="."]
+position = Vector2( 1280, 500 )
 
 [node name="UI" parent="." instance=ExtResource( 4 )]
