@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/main/main.gd" type="Script" id=1]
 [ext_resource path="res://src/player/player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/ground_obstacle/ground_obstacle.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/obstacles/ground_obstacle.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/ui/ui.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
