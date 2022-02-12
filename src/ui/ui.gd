@@ -1,24 +1,23 @@
 extends CanvasLayer
 
-# signals
-# a signal that fires when the game starts
-signal start_game
+class_name UI
+
+# A signal that fires when the game is about to be started.
+signal game_starting
 
 func _ready() -> void:
-    # signals
     var e := $StartButton.connect("pressed", self, "_on_StartButton_pressed")
-    if e != 0:
-        print(e)
+    if e != OK:
+        push_error("Failed to connect _on_StartButton_pressed to $StartButton.pressed: %d" % e)
+
     e = $MessageTimer.connect("timeout", self, "_on_MessageTimer_timeout")
-    if e != 0:
-        print(e)
-    pass
+    if e != OK:
+        push_error("Failed to connect _on_MessageTimer_timeout to $MessageTimer.timeout: %d" % e)
 
 func show_message(text: String) -> void:
     $Message.text = text
     $Message.show()
     $MessageTimer.start()
-    pass
 
 func show_game_over() -> void:
     show_message("Game Over")
@@ -33,16 +32,12 @@ func show_game_over() -> void:
 
     $StartButton.show()
 
-    pass
-
 func update_score(score: int) -> void:
     $ScoreLabel.text = String(score)
-    pass
 
 func _on_StartButton_pressed() -> void:
     $StartButton.hide()
-    emit_signal("start_game")
-    pass
+    emit_signal("game_starting")
 
 func _on_MessageTimer_timeout() -> void:
     print("message timeout: hiding message")
